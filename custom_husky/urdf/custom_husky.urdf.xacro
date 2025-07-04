@@ -364,14 +364,54 @@
         <child link="camera"/>
     </joint>
 
-    <!-- ROS2 Control Plugin -->
 
-    <gazebo>
-      <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
-        <!-- <parameters>$(arg gazebo_controllers)</parameters> -->
-      </plugin>
-    </gazebo>    
+    <link name="imu_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.02 0.02 0.01"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.02 0.02 0.01"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.01"/>
+            <inertia ixx="1e-6" ixy="0.0" ixz="0.0"
+                     iyy="1e-6" iyz="0.0"
+                     izz="1e-6"/>
+        </inertial>
+    </link>
 
+
+    <joint name="imu_joint" type="fixed">
+        <origin xyz="0 0 1" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="imu_link"/>
+    </joint>
+
+
+    <gazebo reference="imu_link">
+        <sensor type="imu" name="imu_sensor">
+        <always_on>true</always_on>
+        <update_rate>50</update_rate>
+        <visualize>true</visualize>
+        <plugin name="imu_plugin" filename="libgazebo_ros_imu_sensor.so">
+            <ros>
+                <namespace>/</namespace>
+                <remapping>imu_plugin/out:=imu/data</remapping>
+            </ros>
+        <body_name>imu_link</body_name>
+        <frame_name>imu_link</frame_name>
+        <gaussian_noise>0.01</gaussian_noise>
+        </plugin>
+        </sensor>
+    </gazebo>
 
 
 </robot>
