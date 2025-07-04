@@ -13,7 +13,7 @@ find_package(nav_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(gazebo_ros_pkgs REQUIRED)
-find_package(lms1xx REQUIRED)
+find_package(xacro REQUIRED)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
