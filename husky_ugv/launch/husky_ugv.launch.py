@@ -40,14 +40,14 @@ def generate_launch_description():
 
     robot_state_publisher_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            os.path.join(launch_file_dir, 'rsp_test.launch.py')
+            os.path.join(launch_file_dir, 'rsp_husky_ugv.launch.py')
         ),
         launch_arguments={'use_sim_time': use_sim_time}.items()
     )
 
     spawn_custom_husky_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            os.path.join(launch_file_dir, 'spawn_test.launch.py')
+            os.path.join(launch_file_dir, 'spawn_husky_ugv.launch.py')
         ),
         launch_arguments={
             'x_pose': x_pose,

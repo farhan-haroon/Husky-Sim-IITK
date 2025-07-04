@@ -12,7 +12,7 @@ def generate_launch_description():
     urdf_path = os.path.join(
         get_package_share_directory('custom_husky'),
         'urdf',
-        'test.urdf'
+        'husky_ugv.urdf'
     )
 
     # Launch configuration variables specific to simulation
@@ -32,7 +32,7 @@ def generate_launch_description():
         package='gazebo_ros',
         executable='spawn_entity.py',
         arguments=[
-            '-entity', "test_husky",
+            '-entity', "husky_ugv",
             '-file', urdf_path,
             '-x', x_pose,
             '-y', y_pose,

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot name ="custom_husky" xmlns:xacro="https://www.ros.org/wiki/xacro">
+<robot name ="husky_ugv" xmlns:xacro="https://www.ros.org/wiki/xacro">
 
     <xacro:property name="chassis_length" value="0.85"/>
     <xacro:property name="chassis_width" value="0.420"/>

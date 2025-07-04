@@ -11,7 +11,7 @@ from launch_ros.actions import Node
 def generate_launch_description():
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
-    urdf_file_name = 'test.urdf'
+    urdf_file_name = 'husky_ugv.urdf'
     frame_prefix = LaunchConfiguration('frame_prefix', default='')
 
     print('urdf_file_name : {}'.format(urdf_file_name))
