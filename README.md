@@ -2,7 +2,7 @@
 
 + This pacakge uses the ROS2 Control plugin - `libgazebo_ros2_control.so` to control the robot. The parameters can be tuned in the file - `control.yaml` at `/custom_husky/config/control.yaml`
 
-+ The URDF folder has a `custom_husky.urdf.xacro` file which need to be converted into `custom_husky.urdf` using the command:
++ The URDF folder has a `custom_husky.urdf.xacro` file which (if modified) need to be converted into `custom_husky.urdf` using the command:
 ```
 ros2 run xacro xacro -o custom_husky.urdf custom_husky.urdf.xacro
 ```
