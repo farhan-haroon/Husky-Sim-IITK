@@ -10,7 +10,7 @@ from launch_ros.actions import Node
 def generate_launch_description():
     # Get the urdf file
     urdf_path = os.path.join(
-        get_package_share_directory('custom_husky'),
+        get_package_share_directory('husky_ugv'),
         'urdf',
         'husky_ugv.urdf'
     )

@@ -17,7 +17,7 @@ def generate_launch_description():
     print('urdf_file_name : {}'.format(urdf_file_name))
 
     urdf_path = os.path.join(
-        get_package_share_directory('custom_husky'),
+        get_package_share_directory('husky_ugv'),
         'urdf',
         urdf_file_name)
 

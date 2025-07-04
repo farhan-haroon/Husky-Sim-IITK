@@ -5,14 +5,10 @@ from launch import LaunchDescription
 from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
-from launch_ros.actions import Node
-from launch.substitutions import PathJoinSubstitution
-from launch_ros.substitutions import FindPackageShare
-from launch.actions import TimerAction
 
 
 def generate_launch_description():
-    launch_file_dir = os.path.join(get_package_share_directory('custom_husky'), 'launch')
+    launch_file_dir = os.path.join(get_package_share_directory('husky_ugv'), 'launch')
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
@@ -20,7 +16,7 @@ def generate_launch_description():
     y_pose = LaunchConfiguration('y_pose', default='0.0')
 
     world = os.path.join(
-        get_package_share_directory('custom_husky'),
+        get_package_share_directory('husky_ugv'),
         'worlds',
         'empty_world.world'
     )
