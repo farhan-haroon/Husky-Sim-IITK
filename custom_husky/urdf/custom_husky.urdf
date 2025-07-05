@@ -336,6 +336,13 @@
     <parent link="base_link"/>
     <child link="camera_mount"/>
   </joint>
+  <!-- Camera Optical Link -->
+  <link name="camera_optical_link"/>
+  <joint name="camera_optical_joint" type="fixed">
+    <origin rpy="-1.5708 0 -1.5708" xyz="0 0 0"/>
+    <parent link="camera"/>
+    <child link="camera_optical_link"/>
+  </joint>
   <!-- Camera -->
   <link name="camera">
     <visual>
@@ -379,7 +386,7 @@
       </depth_camera>
       <plugin filename="libgazebo_ros_camera.so" name="depth_camera_driver">
         <cameraName>depth_camera</cameraName>
-        <frameName>camera</frameName>
+        <frameName>camera_optical_link</frameName>
         <imageTopicName>image_raw</imageTopicName>
         <cameraInfoTopicName>depth/camera_info</cameraInfoTopicName>
         <depthImageTopicName>depth/image_raw</depthImageTopicName>
