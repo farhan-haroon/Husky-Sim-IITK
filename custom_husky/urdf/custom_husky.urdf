@@ -264,6 +264,45 @@
   </link>
   <gazebo reference="velodyne">
     <material>Gazebo/Red</material>
+    <sensor name="velodyne_lidar" type="gpu_ray">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>false</visualize>
+      <update_rate>20</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>720</samples>
+            <resolution>1</resolution>
+            <min_angle>-3.14</min_angle>
+            <max_angle>3.14</max_angle>
+          </horizontal>
+          <vertical>
+            <samples>16</samples>
+            <resolution>1</resolution>
+            <min_angle>-0.261799</min_angle>
+            <!-- ~-15 deg -->
+            <max_angle>0.261799</max_angle>
+            <!-- ~+15 deg -->
+          </vertical>
+        </scan>
+        <range>
+          <min>0.2</min>
+          <max>100.0</max>
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin filename="libgazebo_ros_velodyne_laser.so" name="gazebo_ros_velodyne_controller">
+        <ros>
+          <remapping>~/out:=/velodyne_points</remapping>
+        </ros>
+        <frame_name>velodyne</frame_name>
+      </plugin>
+    </sensor>
   </gazebo>
   <joint name="velodyne_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0.15"/>
