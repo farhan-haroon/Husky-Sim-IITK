@@ -78,7 +78,6 @@
         <child link="base_link"/>
     </joint>
 
-
     <!-- Front Left Wheel -->
 
     <link name="front_left_wheel">
@@ -114,7 +113,6 @@
         <child link="front_left_wheel"/>
         <axis xyz="0 0 1" rpy="0 0 0"/>
     </joint>
-
 
     <!-- Front Right Wheel -->
     
@@ -301,8 +299,8 @@
                     <vertical>
                         <samples>16</samples>
                         <resolution>1</resolution>
-                        <min_angle>-0.261799</min_angle>  <!-- ~-15 deg -->
-                        <max_angle>0.261799</max_angle>   <!-- ~+15 deg -->
+                        <min_angle>-0.261799</min_angle>
+                        <max_angle>0.261799</max_angle>
                     </vertical>
                 </scan>
                 <range>
@@ -332,7 +330,7 @@
         <child link="velodyne"/>
     </joint>
 
-    <!-- camera Mount -->
+    <!-- Camera Mount -->
 
     <link name="camera_mount">
         <visual>
