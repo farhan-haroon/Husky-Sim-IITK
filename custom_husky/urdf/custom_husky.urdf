@@ -339,7 +339,7 @@
   <!-- Camera Optical Link -->
   <link name="camera_optical_link"/>
   <joint name="camera_optical_joint" type="fixed">
-    <origin rpy="-1.5708 0 -1.5708" xyz="0 0 0"/>
+    <origin rpy="0 -1.5708 1.5708" xyz="0 0 0"/>
     <parent link="camera"/>
     <child link="camera_optical_link"/>
   </joint>
